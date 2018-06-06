@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="AreaFormulario">
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+
+
+        <span>
+            @Html.Label("Nome", "Nome")<br />
+
+            @Html.TextBox("Nome", Request.Form["Nome"], new
+            {
+                placeholder = "Informe o nome",
+                maxlength = "150",
+                required = true
+            })
+        </span>
+        <span>
+            @Html.Label("Endereco", "Endereço")<br />
+            @Html.TextBox("Endereco", Request.Form["Endereco"], new
+            {
+                placeholder = "Informe o endereço",
+                maxlength = "100",
+                required = true
+            })
+        </span>
+        <span>
+            @Html.Label("Bairro", "Bairro")<br />
+            @Html.TextBox("Bairro", Request.Form["Bairro"], new
+            {
+                placeholder = "Informe o bairro",
+                maxlength = "100",
+                required = true
+            })
+        </span>
+        <span>
+            @Html.Label("Complemento", "Complemento")<br />
+            @Html.TextBox("Complemento", Request.Form["Complemento"], new
+            {
+                maxlength = "100"
+            })
+        </span>
+        <span>
+            @Html.Label("Cidade", "Cidade")<br />
+            <select id="Cidades"></select>
+        </span>
+        <div>
+            <fieldset>
+                <legend>Tipo Pessoa</legend>
+                <span>
+                    <input type="radio" name="TipoPessoa" value="F" checked="checked" /> Fisíca
+                    <input type="radio" name="TipoPessoa" value="J" />Jurídica
+                </span>
+            </fieldset>
+        </div>
+
+        <span>
+            @Html.Label("Observacao", "Observacao")<br />
+            @Html.TextArea("Observacao", Request.Form["Observacao"], new
+            {
+                maxlength = "500"
+            })
+        </span>
+
+        <br />
+        <span>
+            <button id="btnSalvar" class="btn btn-primary">Gravar</button>
+        </span>
+    </fieldset>
+    <div id="Lista">
+        <table></table>
+    </div>
+</div>
+

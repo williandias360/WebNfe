@@ -1,0 +1,457 @@
+
+.ListaDadosMASE{    
+    height: auto;
+    border:1px solid #8B8C8E;
+    position: relative;    
+    font-size: 13px;
+}
+.ListaDadosMASE table{    
+    border-collapse:separate;
+    border-spacing:0;
+    /*empty-cells:show;*/
+    border-width:0;
+    outline:0;
+    display: block;
+    font-family: "PT Sans", sans-serif;
+    /* function:fontePadrao();*/
+    /* table-layout:fixed;
+     display: inline-block;
+     width: auto;*/
+}
+.ListaDadosMASE table thead,
+.ListaDadosMASE table tbody{
+    margin: 0;
+    padding: 0;
+}
+.ListaDadosMASE .ui-resizable-handle,
+.ListaDadosMASE .ui-resizable-handle:before{
+    position: absolute;
+    width: 9px;    
+    display: block;
+    right: -4px;
+    top: 0;
+    bottom: 0;
+    cursor: e-resize;
+}
+.ListaDadosMASE .ui-resizable-handle:before{
+    width: 1px;
+    background: #8B8C8E;
+    right: 4px;
+    content: "";
+}
+.ListaDadosMASE table td,
+.ListaDadosMASE table th{    
+    margin: 0;
+    font-weight: normal;    
+    position: relative;
+    border:none;
+    vertical-align: middle;
+}
+.ListaDadosMASE table td>span,
+.ListaDadosMASE table th>span{
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+
+    border:1px solid transparent;
+    border-left:none;
+    border-top: none;
+    height: 100%;
+}
+
+.ListaDadosMASE table td:first-of-type>span,
+.ListaDadosMASE table th:first-of-type>span{
+    width: 15px;
+    text-align: center;
+}
+.ListaDadosMASE table th:first-of-type>span{
+    width: 14px;
+}
+.ListaDadosMASE table td:first-of-type>span>input[type=checkbox]{
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    margin-top: 0;
+    position: relative;    
+    width: 25px;
+    margin-left: -4px;
+}
+.ListaDadosMASE table th>span>input:not([type=checkbox]),
+.ListaDadosMASE table th>span>select{
+    border: 1px solid #b3b3b3;
+    display: block;
+    font-size: 11px;
+    height: 19px;
+    margin: 2px 0;
+    padding: 0 5px;
+    width: calc(100% - 12px);
+}
+.ListaDadosMASE table th>span>select{
+    width: 100%;
+}
+.ListaDadosMASE table th>span.Ordenacao:before{
+    content: "";
+    position: absolute;
+    left: 50%;    
+    margin: 0 0 0 -4px;    
+}
+.ListaDadosMASE table th>span.Ordenacao.ASC:before{
+    function: triangulo(4px, bottom, rgba(0,0,0,0.3));
+    bottom: 2px;
+}
+.ListaDadosMASE table th>span.Ordenacao.DESC:before{
+    bottom: -3px;
+    function: triangulo(4px, top, rgba(0,0,0,0.3));
+}
+
+.ListaDadosMASE>.Cabecalho,
+.ListaDadosMASE>.Rodape,
+.ListaDadosMASE>.Botoes{
+    background: #fdfdfd;
+    background: -moz-linear-gradient(top,  #fdfdfd 0%, #fafbfb 10%, #ececef 40%, #e5e6e9 65%, #d5d8dd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(10%,#fafbfb), color-stop(40%,#ececef), color-stop(65%,#e5e6e9), color-stop(100%,#d5d8dd));
+    background: -webkit-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: -o-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: -ms-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: linear-gradient(to bottom,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#d5d8dd',GradientType=0 );
+}
+
+.ListaDadosMASE>.Botoes{
+    height: 30px;
+    border-bottom: 1px solid #8B8C8E;
+}
+.ListaDadosMASE>.Botoes>span{
+    float: left;
+    padding: 2px 10px;
+    margin: 3px 0 0 4px;
+    border:1px solid #bbbbbf;
+    cursor: pointer;
+    function:border-radius(4px);
+    padding-left: 24px;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+}
+.ListaDadosMASE>.Botoes>span.Inativo{
+    function:opacity(40);
+    cursor: default;
+    function: desabilitarClick();
+}
+.ListaDadosMASE>.Botoes>span:hover{
+    background-color: #e5e6e9;
+}
+.ListaDadosMASE>.Botoes>span.Cadastrar{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Novo.png");
+}
+.ListaDadosMASE>.Botoes>span.Editar{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Editar.png");
+}
+.ListaDadosMASE>.Botoes>span.Excluir{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Excluir.png");
+}
+.ListaDadosMASE>.Botoes>span.MaisInformacoes{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Informacoes.png");
+}
+.ListaDadosMASE>.Botoes>span.PDF{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/PDF.png");
+}
+.ListaDadosMASE>.Botoes>span.Leilao{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Leilao.png");
+}
+.ListaDadosMASE>.Botoes>span.Duplicar{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Duplicar.png");
+}
+.ListaDadosMASE>.Botoes>span.Excel{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Excel.gif");
+}
+
+.ListaDadosMASE>.Cabecalho{    
+    box-shadow: 0 -1px #8B8C8E inset;
+    function:user-select();
+    cursor: default;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo{
+    /*margin: 0 17px 0 19px;*/
+    margin: 0 0 0 19px;
+    /*border:1px solid #8B8C8E;
+    
+    border-top: none;
+    border-bottom: none;*/
+    border-left: 1px solid #8B8C8E;
+    overflow: hidden;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table{
+    text-align: left;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th{
+    border-bottom: 1px solid #8B8C8E;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th:first-of-type{
+    border-right: 1px solid #8B8C8E;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th>span{
+    padding: 5px;    
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th.Ordenacao{
+    background: #fdfdfd;
+    background: -moz-linear-gradient(top,  #fdfdfd 0%, #fafbfb 10%, #ececef 29%, #d3d3d3 65%, #bbbbbf 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(10%,#fafbfb), color-stop(29%,#ececef), color-stop(65%,#d3d3d3), color-stop(100%,#bbbbbf));
+    background: -webkit-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 29%,#d3d3d3 65%,#bbbbbf 100%);
+    background: -o-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 29%,#d3d3d3 65%,#bbbbbf 100%);
+    background: -ms-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 29%,#d3d3d3 65%,#bbbbbf 100%);
+    background: linear-gradient(to bottom,  #fdfdfd 0%,#fafbfb 10%,#ececef 29%,#d3d3d3 65%,#bbbbbf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#bbbbbf',GradientType=0 );
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th.Ordenacao:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 1px;
+    left: calc(50% - 4px);
+    border:4px solid transparent;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th.Ordenacao.DESC:before{
+    border-top-color: #afafaf;
+}
+.ListaDadosMASE>.Cabecalho>.Conteudo>table th.Ordenacao.ASC:before{
+    border-bottom-color: #afafaf;
+    top: -3px;
+}
+.ListaDadosMASE>.Conteudo{    
+    overflow: hidden;
+    position: relative;
+}
+.ListaDadosMASE>.Conteudo>.Dados{
+    height: 379px;
+    overflow: auto;
+    margin-left: 20px;
+}
+
+.ListaDadosMASE>.Conteudo>ul{
+    position: absolute;
+    left: 0;    
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    overflow: hidden;    
+    background: #ececef;    
+    box-shadow:  -1px 0 #d5d8dd inset; 
+}
+.ListaDadosMASE>.Conteudo>ul>li{
+    /* content: "";*/
+    display: block;
+
+    background: #fdfdfd;
+    background: -moz-linear-gradient(top,  #fdfdfd 0%, #fafbfb 10%, #ececef 40%, #e5e6e9 65%, #d5d8dd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(10%,#fafbfb), color-stop(40%,#ececef), color-stop(65%,#e5e6e9), color-stop(100%,#d5d8dd));
+    background: -webkit-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: -o-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: -ms-linear-gradient(top,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    background: linear-gradient(to bottom,  #fdfdfd 0%,#fafbfb 10%,#ececef 40%,#e5e6e9 65%,#d5d8dd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#d5d8dd',GradientType=0 );
+
+    height: 23px;
+    border: 1px solid #8B8C8E;
+
+    border-top: none;
+    border-left: none;
+
+    overflow: hidden;
+    text-indent: 999px;
+}
+.ListaDadosMASE>.Conteudo>.Mensagem{
+    position: absolute;
+    right: 0;
+    left: 20px;    
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    text-align: center;
+    cursor: progress;
+    visibility: hidden;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ListaDadosMASE>.Conteudo>.Mensagem>span{       
+
+    display: inline-block;
+    background: #F8F2BE url("../Imagens/Carregando.svg?1") no-repeat 11px center;
+    font-size: 15px;
+    padding: 8px 18px 8px 38px;
+
+    border:1px solid #DDD177;
+    function:border-radius(4px);  
+
+}
+
+.ListaDadosMASE>.Conteudo.Carregando>.Mensagem{
+    visibility: visible;
+}
+.ListaDadosMASE>.Conteudo.Carregando>.Dados{
+    opacity:.6;    
+}
+
+.ListaDadosMASE>.Rodape{
+    position: relative;
+    border-top: 1px solid #8B8C8E;
+    height: 31px;
+    /* line-height: 30px;*/
+    z-index: 2;    
+    display: table;
+    width: 100%;
+}
+.ListaDadosMASE>.Rodape>*{
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 31px;
+}
+.ListaDadosMASE>.Rodape>.Paginacao{
+    padding: 0 5px;
+    width: 257px;
+}
+.ListaDadosMASE>.Rodape>.Totalizador{
+    width: 1px;
+}
+.ListaDadosMASE>.Rodape input{
+    margin: 4px 0 0 6px;
+    height: 21px;
+    line-height: 22px;
+    width: 42px;
+    text-align: center;
+    border: 1px solid #b7b7b7;
+    float: left;    
+}
+.ListaDadosMASE>.Rodape>.BlocoRodape{        
+    padding: 0 9px;    
+    overflow: hidden;  
+    white-space: nowrap;
+}
+.ListaDadosMASE>.Rodape>.BlocoRodape:before{
+    content: "";
+    float: left;
+    width: 1px;
+    height: 22px;
+    background: #bbbbbf;
+    border-left: 1px solid #ffffff;
+    margin: 4px 0 0 -9px;
+}
+
+.ListaDadosMASE>.Rodape>.Paginacao>span{
+    function:user-select();   
+    float: left;
+    margin-left: 6px;
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao{
+    border:1px solid transparent;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    text-indent: 9999px;    
+    margin: 5px 0 0 3px;
+    position: relative;
+    border-radius: 4px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao:before{
+    /* content: "";
+     float: left;
+     width: 9px;
+     height: 10px;
+     margin: 4px 0 0 5px;
+     background-position: center center;   */ 
+    /*background: url("../Imagens/Componentes/jQuery.DataList.png") no-repeat left center;*/
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Avancar{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Avancar.gif");
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Ultima{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Ultima.gif");
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Primeira{
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Primeira.gif"); 
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Voltar{   
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Voltar.gif");
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Atualizar{ 
+    background-image: url("../Imagens/Componentes/jQuery.DataList/Atualizar.gif");
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao:hover{
+    border-color: #8B8C8E;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.7);
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao:first-child{
+    margin-left: 0;
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao:active{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4) inset;
+    margin-top: 6px;
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Voltar{
+    margin-right: 4px;
+}
+.ListaDadosMASE>.Rodape>.Paginacao>span.Botao.Avancar{
+    margin-left: 10px;
+}
+.ListaDadosMASE>.Rodape>.Pesquisa>input{
+    /* width: 300px;*/
+    text-align: left;
+    background-position:  7px 1px;
+    padding: 0 8px;
+    width: 100%;
+}
+
+.ListaDadosMASE>.Conteudo table tr td{
+    cursor: default;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome and Opera */
+}
+.ListaDadosMASE>.Conteudo table tr td:first-child>span{
+
+}
+.ListaDadosMASE>.Conteudo table tr td>span{
+    border: 1px solid #d5d8dd;
+    border-left: none;
+    border-top: none;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 5px;
+}
+.ListaDadosMASE>.Conteudo table tr td>span>img{
+    float: left;
+    margin: 4px 5px 0 0;
+}
+.ListaDadosMASE>.Conteudo table tr:nth-child(odd) td>span{
+    background: #f9f9f9;
+}
+.ListaDadosMASE>.Conteudo table tr td>span.Ordenacao{
+    background: #f9f9f9;
+}
+.ListaDadosMASE>.Conteudo table tr:nth-child(odd) td>span.Ordenacao{
+    background: #f1f1f1; 
+}
+.ListaDadosMASE>.Conteudo table tr:hover td>span{
+
+
+    background: #e5e6e9 !important;
+}
+.ListaDadosMASE>.Conteudo table tr.Selecionada td>span{
+
+    background: #F8F2BE !important;
+}
